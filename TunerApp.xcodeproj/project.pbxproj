@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		3805093726F8B1BD00E3A84C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3805093626F8B1BD00E3A84C /* Preview Assets.xcassets */; };
 		3805094226F8B1BD00E3A84C /* TunerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805094126F8B1BD00E3A84C /* TunerAppTests.swift */; };
 		3805094D26F8B1BD00E3A84C /* TunerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3805094C26F8B1BD00E3A84C /* TunerAppUITests.swift */; };
+		3805095F26F8B1E000E3A84C /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3805095E26F8B1E000E3A84C /* SoundpipeAudioKit */; };
+		384C884626FB1CB400305668 /* Tuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C884526FB1CB400305668 /* Tuner.swift */; };
+		384C884B26FB211A00305668 /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C884A26FB211A00305668 /* Pitch.swift */; };
+		385E052A26FB738400C58933 /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C884A26FB211A00305668 /* Pitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,8 @@
 		3805094826F8B1BD00E3A84C /* TunerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3805094C26F8B1BD00E3A84C /* TunerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerAppUITests.swift; sourceTree = "<group>"; };
 		3805094E26F8B1BD00E3A84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		384C884526FB1CB400305668 /* Tuner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tuner.swift; sourceTree = "<group>"; };
+		384C884A26FB211A00305668 /* Pitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3805095F26F8B1E000E3A84C /* SoundpipeAudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +107,8 @@
 				3805093326F8B1BD00E3A84C /* Assets.xcassets */,
 				3805093826F8B1BD00E3A84C /* Info.plist */,
 				3805093526F8B1BD00E3A84C /* Preview Content */,
+				384C884526FB1CB400305668 /* Tuner.swift */,
+				384C884A26FB211A00305668 /* Pitch.swift */,
 			);
 			path = TunerApp;
 			sourceTree = "<group>";
@@ -146,6 +155,9 @@
 			dependencies = (
 			);
 			name = TunerApp;
+			packageProductDependencies = (
+				3805095E26F8B1E000E3A84C /* SoundpipeAudioKit */,
+			);
 			productName = TunerApp;
 			productReference = 3805092C26F8B1BB00E3A84C /* TunerApp.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +229,9 @@
 				Base,
 			);
 			mainGroup = 3805092326F8B1BB00E3A84C;
+			packageReferences = (
+				3805095D26F8B1E000E3A84C /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+			);
 			productRefGroup = 3805092D26F8B1BB00E3A84C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,6 +275,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3805093226F8B1BB00E3A84C /* ContentView.swift in Sources */,
+				384C884626FB1CB400305668 /* Tuner.swift in Sources */,
+				384C884B26FB211A00305668 /* Pitch.swift in Sources */,
 				3805093026F8B1BB00E3A84C /* TunerAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385E052A26FB738400C58933 /* Pitch.swift in Sources */,
 				3805094226F8B1BD00E3A84C /* TunerAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -574,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3805095D26F8B1E000E3A84C /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3805095E26F8B1E000E3A84C /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3805095D26F8B1E000E3A84C /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3805092426F8B1BB00E3A84C /* Project object */;
 }

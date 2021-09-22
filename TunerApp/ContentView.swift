@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    let tuner = Tuner()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Button("Start") {
+                print("Started")
+            }
+            Button("Stop") {
+                print("Stopped")
+            }
+        }
     }
 }
 
