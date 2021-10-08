@@ -10,12 +10,13 @@ import AudioKit
 import SoundpipeAudioKit
 import AudioKitEX
 
-class Tuner {
+class Tuner: ObservableObject {
     let engine = AudioEngine()
     let mic: AudioEngine.InputNode
-    let tracker: PitchTap!
+    var tracker: PitchTap!
     let silence: Fader
-    let note = Pitch()
+    @Published var note = ""
+    @Published var octave = 0
 
     init() {
         guard let input = engine.input else {
@@ -27,8 +28,7 @@ class Tuner {
         engine.output = silence
         tracker = PitchTap(mic, handler: { (pitch, amp) in
             DispatchQueue.main.async {
-//                self.note.updateValues(Double(pitch.first!))
-                print(pitch)
+                (self.note, self.octave) = Pitch.convertFrequencytoNote(Double(pitch.first!))
             }
         })
     }

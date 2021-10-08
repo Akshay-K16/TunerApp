@@ -8,30 +8,33 @@
 import Foundation
 
 class Pitch {
-    var frequency: Double = 0.0
-    var note: String = ""
-    var octave: Int = 0
-    let notes = ["A", "A Sharp", "B", "C", "C Sharp", "D", "D Sharp", "E", "F", "F Sharp", "G", "G Sharp"]
-    
-    private func convertFrequencytoNote() {
-        let keyNumber = round(12*log2(self.frequency/440)+49)
+    static func convertFrequencytoNote(_ frequency: Double) -> (String, Int) {
+        let notes = ["A", "A Sharp", "B", "C", "C Sharp", "D", "D Sharp", "E", "F", "F Sharp", "G", "G Sharp"]
+        // Converts the Frequency into a Key Number
+        let keyNumber = round(12*log2(frequency/440)+49)
+        var note = ""
+        var octave = 0
         
+        // Uses the Key Number to Find the Octave
         let x = (keyNumber+2)/12
         if (x.truncatingRemainder(dividingBy: 1.0)) >= 0.5 {
-            self.octave = Int(ceil(x))
+            octave = Int(ceil(x))
         } else {
-            self.octave = Int(floor(x))
+            octave = Int(floor(x))
         }
         
         if octave <= 0 {
             octave = 0
         }
         
-        self.note = notes[(Int(keyNumber) % 12)-1]
-    }
-
-    func updateValues(_ freq: Double) {
-        frequency = freq
-        self.convertFrequencytoNote()
+        // Uses the KeyNumber to index the notes array and return a note name
+        let index = (Int(keyNumber) % 12)-1
+        if index < 0 {
+            note = notes[notes.count-1]
+        } else {
+            note = notes[index]
+        }
+        
+        return (note, octave)
     }
 }

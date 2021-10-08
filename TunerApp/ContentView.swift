@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    let tuner = Tuner()
-    
+    @StateObject var tuner = Tuner()
+
     var body: some View {
         VStack {
             Button("Start") {
-                print("Started")
+                tuner.start()
             }
             Button("Stop") {
+                tuner.stop()
                 print("Stopped")
             }
+            Text("Note: \(tuner.note)\(tuner.octave)")
         }
     }
 }
